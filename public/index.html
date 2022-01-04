@@ -20,34 +20,8 @@
 <body>
 	<!-- Put scripts that write page contents in <body> section. -->
 	<div id="contents"></div>  
-
-	<!--
-	<script>	
-		// -- Create React element with Pure JavaScript Code --
-		/*
-		const element = React.createElement('div', {title: 'Outer div'}, 	// The title will show up in the tooltip.
-			React.createElement('h1', {className: 'greeting'}, 'Hello World!') // {class: 'greeting'}
-		);
-		// ---- Rendering : Transform virtual DOM (i.e. React elements) to real DOM ----
-		ReactDOM.render(element, document.getElementById('contents'));		// Render a React element into a root DOM node
-		*/
-	</script>
-	-->
-
-	<!--
-	-- Create React element with JSX (Here, JSX code is exactly the same as HTML) --
-	---- JSX is converted to JavaScript with Babel compiler----
-	---- Rendering : Transform virtual DOM (i.e. React elements) to real DOM ----
-	-->
-	<script type="text/babel">
-		const element = (
-			<div title='Outer div'>
-				<h1 className='greeting'>Hello World!</h1>
-			</div>
-		);				// JSX
-
-		ReactDOM.render(element, document.getElementById('contents'));
-	</script>
+	
+	<script type="text/babel" src="./App.jsx"></script>
 </body>
 
 </html>
