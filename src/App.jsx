@@ -5,9 +5,13 @@
 	---- JSX is converted to JavaScript with Babel compiler----
 	---- Rendering : Transform virtual DOM (i.e. React elements) to real DOM ----
 */
+const continents = ['Africa', 'America', 'Asia', 'Australia', 'Europe'];
+const helloContinents = Array.from(continents, c=> `Hello ${c}!`);
+const message = helloContinents.join(' ');
+
 const element = (
     <div title='Outer div'>
-        <h1 className='greeting'>Hello World!</h1>
+        <h1 className='greeting'>{message}</h1>
     </div>
 );				// JSX
 

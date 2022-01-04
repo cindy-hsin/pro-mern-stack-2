@@ -7,7 +7,8 @@
 	<!-- Put scripts that are libraries in <head> section. -->
 	<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
 	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-
+	<!-- Use polyfills to add new build-in functions(like Array.find()) implementation in older browsers -->
+	<script src="https://unpkg.com/browse/@babel/polyfill@7/dist/polyfill.min.js"></script>
 	<style>
 		.greeting{
 			color: blue;
