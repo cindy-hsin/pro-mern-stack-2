@@ -6,23 +6,46 @@
 	---- Rendering : Transform virtual DOM (i.e. React elements) to real DOM ----
 */
 
-
-class HelloWorld extends React.Component {
+class IssueList extends React.Component{
   render() {
-    const continents = ['Africa', 'America', 'Asia', 'Australia', 'Europe'];
-    const helloContinents = Array.from(continents, c=> `Hello ${c}!`);
-    const message = helloContinents.join(' ');
-
     return (
-      <div title='Outer div'>
-        <h1 className='greeting'>{message}</h1>
-      </div>
-    )
+      <React.Fragment>
+        <h1>Issue Tracker</h1>
+        <IssueFilter />
+        <hr />
+        <IssueTable />
+        <hr />
+        <IssueAdd />
+      </React.Fragment>
+    );
   }
 }
 
-// Instantiate an instance of HelloWorld, i.e. a React element
-const element = <HelloWorld />;
+class IssueFilter extends React.Component{
+  render() {
+    return (
+      <div>Placeholder for the issue filter</div>
+    );
+  }
+}
+
+class IssueTable extends React.Component{
+  render() {
+    return (
+      <div>Placeholder for the a table of issues</div>
+    );
+  }
+}
+
+class IssueAdd extends React.Component{
+  render() {
+    return (
+      <div>Placeholder for a form to add an issue</div>
+    );
+  }
+}
+
+const element = <IssueList />;
 
 // Still use ReactDOM.render to transform Virtual DOM to real DOM
 ReactDOM.render(element, document.getElementById('contents'));
