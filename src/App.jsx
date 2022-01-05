@@ -9,7 +9,7 @@
 class IssueList extends React.Component{
   render() {
     return (
-      <React.Fragment>
+      <React.Fragment>  {/* Fragment: alternative for <div> to enclose multiple elements*/}
         <h1>Issue Tracker</h1>
         <IssueFilter />
         <hr />
