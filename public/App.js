@@ -29,6 +29,25 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 	---- JSX is converted to JavaScript with Babel compiler----
 	---- Rendering : Transform virtual DOM (i.e. React elements) to real DOM ----
 */
+var issues = [{
+  id: 1,
+  status: 'New',
+  owner: 'Ravan',
+  effort: 5,
+  created: new Date('2018-08-15'),
+  due: undefined,
+  // due: optional
+  title: 'Error in console when clicking Add'
+}, {
+  id: 2,
+  status: 'Assigned',
+  owner: 'Eddie',
+  effort: 14,
+  created: new Date('2018-08-16'),
+  due: new Date('2018-08-30'),
+  title: 'Missing bottom border on panel'
+}];
+
 var IssueList = /*#__PURE__*/function (_React$Component) {
   _inherits(IssueList, _React$Component);
 
@@ -85,29 +104,21 @@ var IssueTable = /*#__PURE__*/function (_React$Component3) {
   _createClass(IssueTable, [{
     key: "render",
     value: function render() {
-      var rowStyle = {
-        border: "1px solid silver",
-        padding: 4
-      };
-      return (
-        /*#__PURE__*/
-        // <div>Placeholder for the a table of issues</div>
-        React.createElement("table", {
-          style: {
-            borderCollapse: "collapse"
-          }
-        }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", {
-          style: rowStyle
-        }, "ID"), /*#__PURE__*/React.createElement("th", {
-          style: rowStyle
-        }, "Title"))), /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement(IssueRow, {
-          rowStyle: rowStyle,
-          issue_id: 1
-        }, "Error in console when clicking Add"), /*#__PURE__*/React.createElement(IssueRow, {
-          rowStyle: rowStyle,
-          issue_id: 2
-        }, /*#__PURE__*/React.createElement("div", null, "Missing ", /*#__PURE__*/React.createElement("b", null, "bottom"), " border on panel"))))
-      );
+      var issueRows = issues.map(function (issue) {
+        return /*#__PURE__*/React.createElement(IssueRow, {
+          key: issue.id,
+          issue: issue
+        });
+      });
+      /* 
+      Keys help React identiy which items have changed, are added or are removed.
+      Keys should be given to the elements inside the array
+      to give the elements a stable identity.
+      */
+
+      return /*#__PURE__*/React.createElement("table", {
+        className: "bordered-table"
+      }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "ID"), /*#__PURE__*/React.createElement("th", null, "Status"), /*#__PURE__*/React.createElement("th", null, "Owner"), /*#__PURE__*/React.createElement("th", null, "Created"), /*#__PURE__*/React.createElement("th", null, "Effort"), /*#__PURE__*/React.createElement("th", null, "Due Date"), /*#__PURE__*/React.createElement("th", null, "Title"))), /*#__PURE__*/React.createElement("tbody", null, issueRows));
     }
   }]);
 
@@ -128,14 +139,8 @@ var IssueRow = /*#__PURE__*/function (_React$Component4) {
   _createClass(IssueRow, [{
     key: "render",
     value: function render() {
-      var style = this.props.rowStyle; // Since it's the value for <td> component's 'style' attribute, 
-      // it should be a Javascript object.
-
-      return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
-        style: style
-      }, this.props.issue_id), /*#__PURE__*/React.createElement("td", {
-        style: style
-      }, this.props.children));
+      var issue = this.props.issue;
+      return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", null, issue.id), /*#__PURE__*/React.createElement("td", null, issue.status), /*#__PURE__*/React.createElement("td", null, issue.owner), /*#__PURE__*/React.createElement("td", null, issue.created.toDateString()), /*#__PURE__*/React.createElement("td", null, issue.effort), /*#__PURE__*/React.createElement("td", null, issue.due ? issue.due.toDateString() : ''), /*#__PURE__*/React.createElement("td", null, issue.title));
     }
   }]);
 
