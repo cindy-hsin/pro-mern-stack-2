@@ -85,22 +85,74 @@ var IssueTable = /*#__PURE__*/function (_React$Component3) {
   _createClass(IssueTable, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, "Placeholder for the a table of issues");
+      var rowStyle = {
+        border: "1px solid silver",
+        padding: 4
+      };
+      return (
+        /*#__PURE__*/
+        // <div>Placeholder for the a table of issues</div>
+        React.createElement("table", {
+          style: {
+            borderCollapse: "collapse"
+          }
+        }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", {
+          style: rowStyle
+        }, "ID"), /*#__PURE__*/React.createElement("th", {
+          style: rowStyle
+        }, "Title"))), /*#__PURE__*/React.createElement("tbody", null, /*#__PURE__*/React.createElement(IssueRow, {
+          rowStyle: rowStyle,
+          issue_id: 1,
+          issue_title: "Error in console when clicking Add"
+        }), /*#__PURE__*/React.createElement(IssueRow, {
+          rowStyle: rowStyle,
+          issue_id: 2,
+          issue_title: "Missing bottom border on panel"
+        })))
+      );
     }
   }]);
 
   return IssueTable;
 }(React.Component);
 
-var IssueAdd = /*#__PURE__*/function (_React$Component4) {
-  _inherits(IssueAdd, _React$Component4);
+var IssueRow = /*#__PURE__*/function (_React$Component4) {
+  _inherits(IssueRow, _React$Component4);
 
-  var _super4 = _createSuper(IssueAdd);
+  var _super4 = _createSuper(IssueRow);
+
+  function IssueRow() {
+    _classCallCheck(this, IssueRow);
+
+    return _super4.apply(this, arguments);
+  }
+
+  _createClass(IssueRow, [{
+    key: "render",
+    value: function render() {
+      var style = this.props.rowStyle; // Since it's the value for <td> component's 'style' attribute, 
+      // it should be a Javascript object.
+
+      return /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
+        style: style
+      }, this.props.issue_id), /*#__PURE__*/React.createElement("td", {
+        style: style
+      }, this.props.issue_title));
+    }
+  }]);
+
+  return IssueRow;
+}(React.Component);
+
+var IssueAdd = /*#__PURE__*/function (_React$Component5) {
+  _inherits(IssueAdd, _React$Component5);
+
+  var _super5 = _createSuper(IssueAdd);
 
   function IssueAdd() {
     _classCallCheck(this, IssueAdd);
 
-    return _super4.apply(this, arguments);
+    return _super5.apply(this, arguments);
   }
 
   _createClass(IssueAdd, [{
