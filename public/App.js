@@ -25,8 +25,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 // JSX & Javascript code separated out from index.html
 
 /** 
-	-- Create React element with JSX (Here, JSX code is exactly the same as HTML) --
-	---- JSX is converted to JavaScript with Babel compiler----
+	-- Create React element with JSX --
+	---- JSX is converted to JavaScript with Babel compiler ----
 	---- Rendering : Transform virtual DOM (i.e. React elements) to real DOM ----
 */
 var issues = [{

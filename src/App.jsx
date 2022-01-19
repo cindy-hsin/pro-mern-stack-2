@@ -1,12 +1,12 @@
 // JSX & Javascript code separated out from index.html
 
 /** 
-	-- Create React element with JSX (Here, JSX code is exactly the same as HTML) --
-	---- JSX is converted to JavaScript with Babel compiler----
+	-- Create React element with JSX --
+	---- JSX is converted to JavaScript with Babel compiler ----
 	---- Rendering : Transform virtual DOM (i.e. React elements) to real DOM ----
 */
 
-const issues = [
+const initialIssues = [
   {
     id: 1, status: 'New', owner: 'Ravan', effort: 5,
     created: new Date('2018-08-15'), due: undefined,    // due: optional
@@ -46,9 +46,21 @@ class IssueFilter extends React.Component{
 
 
 class IssueTable extends React.Component{
+  constructor() {
+     /* Set the initial state of the component 
+        in the constructor of the component class
+      */
+    
+    super();  // Don't forget to call super()
+    this.state = {issues: initialIssues};
+  }
+
   render() {
-    const issueRows = issues.map(issue => 
+    const issueRows = this.state.issues.map(issue => 
       <IssueRow key={issue.id} issue={issue}/>);
+
+    // const issueRows = issues.map(issue => 
+    //   <IssueRow key={issue.id} issue={issue}/>);
     /* 
     Keys help React identiy which items have changed, are added or are removed.
     Keys should be given to the elements inside the array
